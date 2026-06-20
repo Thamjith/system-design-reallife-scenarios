@@ -168,14 +168,74 @@
 }
 
 .mermaid-diagram {
+  position: relative;
   margin: 0 0 20px;
-  text-align: center;
-  overflow-x: auto;
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.mermaid-viewport {
+  overflow: hidden;
+  min-height: 120px;
+  max-height: 480px;
+  cursor: default;
+  touch-action: none;
+}
+
+.mermaid-viewport--pannable {
+  cursor: grab;
+}
+
+.mermaid-viewport--dragging {
+  cursor: grabbing;
+}
+
+.mermaid-canvas {
+  display: flex;
+  justify-content: center;
+  padding: 18px 20px;
+  transform-origin: 0 0;
+  will-change: transform;
 }
 
 .mermaid-diagram svg {
-  max-width: 100%;
-  border-radius: 10px;
+  display: block;
+  max-width: none;
+  height: auto;
+  border-radius: 6px;
+}
+
+.mermaid-controls {
+  display: flex;
+  justify-content: flex-end;
+  gap: 6px;
+  padding: 8px 10px;
+  border-top: 1px solid var(--border);
+  background: var(--surface-2);
+  border-radius: 0 0 10px 10px;
+}
+
+.mermaid-control-btn {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  line-height: 1;
+  padding: 6px 10px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--text-2);
+  cursor: pointer;
+  transition: border-color 0.12s, color 0.12s;
+}
+
+.mermaid-control-btn:hover {
+  border-color: var(--accent-line);
+  color: var(--text);
+}
+
+.mermaid-control-btn[data-action='reset'] {
+  padding-inline: 12px;
 }
 
 .hljs-attr,

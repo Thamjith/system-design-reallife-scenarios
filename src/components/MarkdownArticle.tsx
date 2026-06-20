@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react'
 import mermaid from 'mermaid'
+import { attachMermaidZoom } from '../utils/mermaidZoom'
 import hljs from 'highlight.js/lib/core'
 import javascript from 'highlight.js/lib/languages/javascript'
 import python from 'highlight.js/lib/languages/python'
@@ -56,6 +57,8 @@ export function MarkdownArticle({ html }: MarkdownArticleProps) {
 
     initMermaid()
 
+    const cleanups: Array<() => void> = []
+
     mermaidBlocks.forEach(async (block, i) => {
       const pre = block.parentElement
       if (!pre) return
@@ -67,10 +70,16 @@ export function MarkdownArticle({ html }: MarkdownArticleProps) {
         wrapper.className = 'mermaid-diagram'
         wrapper.innerHTML = svg
         pre.replaceWith(wrapper)
+        const cleanup = attachMermaidZoom(wrapper)
+        if (cleanup) cleanups.push(cleanup)
       } catch (err) {
         console.error('Mermaid render failed', err)
       }
     })
+
+    return () => {
+      cleanups.forEach((fn) => fn())
+    }
   }, [html])
 
   return (
