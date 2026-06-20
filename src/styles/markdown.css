@@ -245,3 +245,15 @@
 .hljs-params {
   color: var(--hl-attr);
 }
+
+/* Level blocks — wraps <!-- level:X --> ... <!-- /level:X --> sections */
+.level-block {
+  border-radius: 8px;
+  transition: opacity 0.18s ease;
+}
+
+.level-block--dimmed {
+  opacity: 0.2;
+  pointer-events: none;
+  user-select: none;
+}

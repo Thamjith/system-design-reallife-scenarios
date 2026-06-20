@@ -360,5 +360,474 @@ body {
   display: flex;
   flex-wrap: wrap;
   gap: 7px;
-  margin-bottom: 24px;
+}
+
+/* Scenario page meta row (tags + readtime) */
+.scenario-meta-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.scenario-readtime {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex: none;
+  padding-top: 2px;
+}
+
+.readtime-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  color: var(--text-3);
+  white-space: nowrap;
+}
+
+.readtime-check {
+  font-size: 11px;
+  color: var(--hl-string);
+}
+
+/* Level selector — toolbar control on scenario pages */
+.toolbar-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.level-selector {
+  display: flex;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  overflow: hidden;
+}
+
+.level-selector-btn {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  padding: 6px 11px;
+  background: var(--surface);
+  border: none;
+  border-right: 1px solid var(--border);
+  color: var(--text-2);
+  cursor: pointer;
+  transition: background 0.12s, color 0.12s;
+}
+
+.level-selector-btn:last-child {
+  border-right: none;
+}
+
+.level-selector-btn:hover {
+  background: var(--surface-2);
+  color: var(--text);
+}
+
+.level-selector-btn--active {
+  background: var(--accent);
+  color: #fff;
+}
+
+.level-selector-btn--active:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* Level badges — colored pills for Junior / Senior / Staff */
+.level-badge {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.02em;
+  padding: 3px 9px;
+  border-radius: 5px;
+  border: 1px solid transparent;
+}
+
+.level-badge--junior {
+  background: oklch(0.94 0.06 150);
+  color: oklch(0.38 0.12 150);
+  border-color: oklch(0.85 0.08 150);
+}
+
+.level-badge--senior {
+  background: oklch(0.93 0.05 250);
+  color: oklch(0.38 0.1 250);
+  border-color: oklch(0.84 0.07 250);
+}
+
+.level-badge--staff {
+  background: oklch(0.94 0.05 30);
+  color: oklch(0.38 0.1 30);
+  border-color: oklch(0.85 0.07 30);
+}
+
+[data-theme='dark'] .level-badge--junior {
+  background: oklch(0.28 0.06 150);
+  color: oklch(0.78 0.1 150);
+  border-color: oklch(0.35 0.08 150);
+}
+
+[data-theme='dark'] .level-badge--senior {
+  background: oklch(0.27 0.05 250);
+  color: oklch(0.78 0.09 250);
+  border-color: oklch(0.34 0.07 250);
+}
+
+[data-theme='dark'] .level-badge--staff {
+  background: oklch(0.28 0.05 30);
+  color: oklch(0.78 0.09 30);
+  border-color: oklch(0.35 0.07 30);
+}
+
+/* Domain badge — slightly different visual weight from regular tags */
+.domain-badge {
+  color: var(--text);
+  font-weight: 500;
+}
+
+/* Prerequisite section at article bottom */
+.prereq-section {
+  margin-top: 56px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border-2);
+}
+
+.prereq-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  margin: 0 0 12px;
+}
+
+.prereq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.prereq-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: inherit;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px 16px;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.prereq-card:hover {
+  border-color: var(--accent-line);
+  box-shadow: var(--shadow);
+}
+
+.prereq-title {
+  flex: 1;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.prereq-arrow {
+  color: var(--text-3);
+  font-size: 14px;
+}
+
+/* ScenarioCard enhancements */
+.scenario-card-eyebrow {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  margin-bottom: 6px;
+}
+
+.scenario-card-header-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: none;
+}
+
+.scenario-card-readtime {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: var(--text-3);
+  white-space: nowrap;
+}
+
+.scenario-card--completed {
+  border-left: 3px solid var(--hl-string);
+}
+
+/* Progress summary on homepage */
+.progress-summary {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  color: var(--text-3);
+  margin-bottom: 20px;
+}
+
+.progress-summary-count {
+  color: var(--text-2);
+  font-weight: 500;
+}
+
+/* Learning paths banner on homepage */
+.paths-banner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+  padding: 14px 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 9px;
+}
+
+.paths-banner-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  margin-right: 4px;
+}
+
+.path-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 13px;
+  color: var(--accent);
+  background: var(--accent-bg);
+  border: 1px solid var(--accent-line);
+  border-radius: 6px;
+  padding: 5px 11px;
+  transition: background 0.12s, border-color 0.12s;
+}
+
+.path-chip:hover {
+  background: oklch(from var(--accent) l c h / 0.12);
+  border-color: var(--accent);
+}
+
+.path-chip-time {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: var(--text-3);
+}
+
+/* PathsPage — grid of path cards */
+.paths-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.path-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 22px 24px;
+  transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
+}
+
+.path-card:hover {
+  border-color: var(--accent-line);
+  box-shadow: var(--shadow);
+  transform: translateY(-1px);
+}
+
+.path-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.path-card-time {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  color: var(--text-3);
+}
+
+.path-card-title {
+  font-size: 19px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin: 0 0 8px;
+}
+
+.path-card-desc {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--text-2);
+  margin: 0 0 16px;
+}
+
+.path-card-footer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.path-progress-bar {
+  flex: 1;
+  height: 4px;
+  background: var(--surface-2);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.path-progress-fill {
+  height: 100%;
+  background: var(--hl-string);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.path-progress-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: var(--text-3);
+  white-space: nowrap;
+}
+
+/* PathPage — individual path detail */
+.path-detail-progress {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 36px;
+  padding: 16px 18px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 9px;
+}
+
+.path-detail-progress-bar {
+  flex: 1;
+  height: 5px;
+  background: var(--surface-2);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.path-detail-progress-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  color: var(--text-2);
+  white-space: nowrap;
+}
+
+.path-continue-btn {
+  text-decoration: none;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: #fff;
+  background: var(--accent);
+  border-radius: 6px;
+  padding: 6px 12px;
+  white-space: nowrap;
+  transition: opacity 0.12s;
+}
+
+.path-continue-btn:hover {
+  opacity: 0.88;
+}
+
+.path-complete-badge {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  color: var(--hl-string);
+  white-space: nowrap;
+}
+
+.path-scenario-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.path-scenario-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+  color: inherit;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 14px 16px;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.path-scenario-item:hover {
+  border-color: var(--accent-line);
+  box-shadow: var(--shadow);
+}
+
+.path-scenario-item--done {
+  border-left: 3px solid var(--hl-string);
+}
+
+.path-scenario-num {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  color: var(--text-3);
+  min-width: 20px;
+  text-align: right;
+}
+
+.path-scenario-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.path-scenario-domain {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+
+.path-scenario-title {
+  font-size: 14.5px;
+  font-weight: 500;
+}
+
+.path-scenario-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: none;
+}
+
+.path-scenario-time {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: var(--text-3);
+}
+
+.path-scenario-check {
+  font-size: 12px;
+  color: var(--hl-string);
 }
