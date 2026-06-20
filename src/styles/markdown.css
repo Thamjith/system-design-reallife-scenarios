@@ -1,0 +1,187 @@
+.md-body {
+  font-family: 'IBM Plex Sans', system-ui, sans-serif;
+  color: var(--text-md);
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.md-body > *:first-child {
+  margin-top: 0;
+}
+
+.md-body h1 {
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin: 0 0 8px;
+  color: var(--text);
+}
+
+.md-body h2 {
+  font-size: 21px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin: 44px 0 14px;
+  padding-top: 22px;
+  border-top: 1px solid var(--border-2);
+  color: var(--text);
+}
+
+.md-body h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 28px 0 10px;
+  color: var(--text);
+}
+
+.md-body p {
+  margin: 0 0 16px;
+}
+
+.md-body a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid var(--accent-line);
+}
+
+.md-body a:hover {
+  border-bottom-color: var(--accent);
+}
+
+.md-body ul,
+.md-body ol {
+  margin: 0 0 16px;
+  padding-left: 24px;
+}
+
+.md-body li {
+  margin: 0 0 7px;
+}
+
+.md-body strong {
+  font-weight: 600;
+  color: var(--text);
+}
+
+.md-body code {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.875em;
+  background: var(--code-inline-bg);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 1px 5px;
+  color: var(--code-inline);
+}
+
+.md-body pre {
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 18px 20px;
+  overflow-x: auto;
+  margin: 0 0 20px;
+  line-height: 1.55;
+}
+
+.md-body pre code {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13.5px;
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--text-md);
+}
+
+.md-body blockquote {
+  margin: 0 0 20px;
+  padding: 14px 18px;
+  background: var(--accent-bg);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 8px 8px 0;
+  color: var(--text-2);
+}
+
+.md-body blockquote p {
+  margin: 0;
+}
+
+.md-body table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 0 0 20px;
+  font-size: 14.5px;
+}
+
+.md-body th {
+  text-align: left;
+  font-weight: 600;
+  background: var(--surface-2);
+  padding: 9px 14px;
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+
+.md-body td {
+  padding: 9px 14px;
+  border: 1px solid var(--border);
+  vertical-align: top;
+}
+
+.md-body hr {
+  border: none;
+  border-top: 1px solid var(--border-2);
+  margin: 32px 0;
+}
+
+.hljs-keyword,
+.hljs-built_in,
+.hljs-literal,
+.hljs-type,
+.hljs-operator {
+  color: var(--hl-keyword);
+}
+
+.hljs-string,
+.hljs-regexp {
+  color: var(--hl-string);
+}
+
+.hljs-number {
+  color: var(--hl-number);
+}
+
+.hljs-comment {
+  color: var(--hl-comment);
+  font-style: italic;
+}
+
+.hljs-title,
+.hljs-title.function_,
+.hljs-section {
+  color: var(--hl-func);
+}
+
+.hljs-title.class_,
+.hljs-class .hljs-title {
+  color: var(--hl-class);
+}
+
+.mermaid-diagram {
+  margin: 0 0 20px;
+  text-align: center;
+  overflow-x: auto;
+}
+
+.mermaid-diagram svg {
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+.hljs-attr,
+.hljs-attribute,
+.hljs-variable,
+.hljs-property,
+.hljs-params {
+  color: var(--hl-attr);
+}
