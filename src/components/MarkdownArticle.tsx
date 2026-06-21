@@ -3,6 +3,7 @@ import mermaid from 'mermaid'
 import { attachMermaidZoom } from '../utils/mermaidZoom'
 import hljs from 'highlight.js/lib/core'
 import javascript from 'highlight.js/lib/languages/javascript'
+import typescript from 'highlight.js/lib/languages/typescript'
 import python from 'highlight.js/lib/languages/python'
 import sql from 'highlight.js/lib/languages/sql'
 import bash from 'highlight.js/lib/languages/bash'
@@ -11,9 +12,14 @@ import java from 'highlight.js/lib/languages/java'
 import rust from 'highlight.js/lib/languages/rust'
 import cpp from 'highlight.js/lib/languages/cpp'
 import csharp from 'highlight.js/lib/languages/csharp'
+import yaml from 'highlight.js/lib/languages/yaml'
+import xml from 'highlight.js/lib/languages/xml'
 
 hljs.registerLanguage('javascript', javascript)
 hljs.registerLanguage('js', javascript)
+hljs.registerLanguage('typescript', typescript)
+hljs.registerLanguage('ts', typescript)
+hljs.registerLanguage('tsx', typescript)
 hljs.registerLanguage('python', python)
 hljs.registerLanguage('sql', sql)
 hljs.registerLanguage('bash', bash)
@@ -24,6 +30,10 @@ hljs.registerLanguage('rust', rust)
 hljs.registerLanguage('cpp', cpp)
 hljs.registerLanguage('c', cpp)
 hljs.registerLanguage('csharp', csharp)
+hljs.registerLanguage('yaml', yaml)
+hljs.registerLanguage('yml', yaml)
+hljs.registerLanguage('xml', xml)
+hljs.registerLanguage('html', xml)
 
 type MarkdownArticleProps = {
   html: string
@@ -49,7 +59,11 @@ export function MarkdownArticle({ html }: MarkdownArticleProps) {
     if (!ref.current) return
 
     ref.current.querySelectorAll('pre code:not(.language-mermaid)').forEach((block) => {
-      hljs.highlightElement(block as HTMLElement)
+      try {
+        hljs.highlightElement(block as HTMLElement)
+      } catch {
+        // unregistered language — leave as plain text, don't abort remaining blocks
+      }
     })
 
     const mermaidBlocks = ref.current.querySelectorAll('pre code.language-mermaid')
