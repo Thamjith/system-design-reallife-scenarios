@@ -5,21 +5,10 @@ import { MarkdownArticle } from '../components/MarkdownArticle'
 import { ThemeToggle } from '../components/ThemeToggle'
 import { getMarkdownContent } from '../data/content'
 import { getScenarioBySlug, SCENARIOS } from '../data/scenarios'
-import { useLevel, type ActiveLevel } from '../context/LevelContext'
 import { useProgress } from '../hooks/useProgress'
-
-const LEVEL_LABELS: Record<ActiveLevel, string> = {
-  all: 'All',
-  junior: 'Junior',
-  senior: 'Senior',
-  staff: 'Staff',
-}
-
-const LEVELS: ActiveLevel[] = ['all', 'junior', 'senior', 'staff']
 
 export default function ScenarioPage() {
   const { slug } = useParams<{ slug: string }>()
-  const { activeLevel, setActiveLevel } = useLevel()
   const { isComplete, markComplete } = useProgress()
 
   const meta = slug ? getScenarioBySlug(slug) : undefined
@@ -66,20 +55,7 @@ export default function ScenarioPage() {
           <Link to="/" className="back-link">
             <span style={{ fontSize: 15 }}>←</span> All scenarios
           </Link>
-          <div className="toolbar-right">
-            <div className="level-selector" role="group" aria-label="Reading level">
-              {LEVELS.map((lvl) => (
-                <button
-                  key={lvl}
-                  className={`level-selector-btn${activeLevel === lvl ? ' level-selector-btn--active' : ''}`}
-                  onClick={() => setActiveLevel(lvl)}
-                >
-                  {LEVEL_LABELS[lvl]}
-                </button>
-              ))}
-            </div>
-            <ThemeToggle />
-          </div>
+          <ThemeToggle />
         </div>
 
         {meta && (
@@ -105,7 +81,7 @@ export default function ScenarioPage() {
         {errorMsg ? (
           <div className="status-message status-message--error">{errorMsg}</div>
         ) : (
-          <MarkdownArticle html={html} activeLevel={activeLevel} />
+          <MarkdownArticle html={html} />
         )}
 
         {prereqScenarios.length > 0 && (

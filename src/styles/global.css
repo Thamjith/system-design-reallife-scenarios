@@ -391,51 +391,6 @@ body {
   color: var(--hl-string);
 }
 
-/* Level selector — toolbar control on scenario pages */
-.toolbar-right {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.level-selector {
-  display: flex;
-  border: 1px solid var(--border);
-  border-radius: 7px;
-  overflow: hidden;
-}
-
-.level-selector-btn {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 12px;
-  padding: 6px 11px;
-  background: var(--surface);
-  border: none;
-  border-right: 1px solid var(--border);
-  color: var(--text-2);
-  cursor: pointer;
-  transition: background 0.12s, color 0.12s;
-}
-
-.level-selector-btn:last-child {
-  border-right: none;
-}
-
-.level-selector-btn:hover {
-  background: var(--surface-2);
-  color: var(--text);
-}
-
-.level-selector-btn--active {
-  background: var(--accent);
-  color: #fff;
-}
-
-.level-selector-btn--active:hover {
-  background: var(--accent);
-  color: #fff;
-}
-
 /* Level badges — colored pills for Junior / Senior / Staff */
 .level-badge {
   font-family: 'IBM Plex Mono', monospace;
